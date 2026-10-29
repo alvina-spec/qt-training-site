@@ -1606,7 +1606,7 @@ const FIGURES = {"foundation": "data:image/webp;base64,UklGRtSAAQBXRUJQVlA4IMiAA
    Block types: text, points, callout, steps, sim, sort, calc, quiz, resources, chart. */
 
 const DEFAULT_CONTENT = {
-  "version": 29,
+  "version": 30,
   "brand": {
     "eyebrow": "Track Delivery · Training",
     "name": "Quantity Tracking",
@@ -3088,14 +3088,47 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Arco - Independence. Phases: Site works, Shell & Core (Superstructure). Open the actual file, which already has the planned quantities marked, and complete the weekly tracking: mark the actual progress for each component using the scan listed against it."
+              },
+              {
+                "type": "resources",
+                "title": "Actual file",
+                "items": [
+                  {
+                    "label": "Project Independence",
+                    "url": "https://drive.google.com/file/d/1q1g5smQaOu1gw-hsDyVuqvUrw0fxEsy9/view",
+                    "note": "Planned quantities already marked",
+                    "assetId": ""
+                  }
+                ]
+              },
+              {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Open this week's drone capture",
-                  "Mark installed underground utilities and paving",
-                  "Mark installed piles, pile caps and slab on grade",
-                  "Record progress % per task",
-                  "Note anything you couldn't verify"
+                  "Open the actual file",
+                  "MV Cabling Duct Bank (LF), Site works: use the Drone Shots scan from 11 Aug 2026",
+                  "MV Cabling Stub Ups (EA), Site works: use the Drone Shots scan from 11 Aug 2026",
+                  "Tel Co Underground Duct Bank (LF), Site works: use the Drone Shots scan from 29 Sep 2026",
+                  "Interior Footings Concrete Pour (EA), Shell & Core (Superstructure): use the Drone Shots scan from 22 Jul 2026",
+                  "Grade Beams Concrete Pour (LF), Shell & Core (Superstructure): use the Drone Shots scan from 22 Jul 2026",
+                  "Vapor Barrier (SF), Shell & Core (Superstructure): use the Drone Shots scan from 22 Jul 2026",
+                  "Complete the weekly tracking",
+                  "Compare your markups with the answer key"
+                ]
+              },
+              {
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Actual Markups",
+                    "url": "https://drive.google.com/drive/folders/1__24SsqpnyHN51yS0MQtUrv5rPKb0JyY",
+                    "note": "Open this only after you finish your weekly tracking",
+                    "assetId": ""
+                  }
                 ]
               }
             ],
@@ -3124,20 +3157,48 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Suffolk - CDR - DC4. Phase: Envelope. Open the actual file, which already has the planned quantities marked, and complete the weekly tracking: mark the actual progress for each component using the scan listed against it."
+              },
+              {
+                "type": "resources",
+                "title": "Actual file",
+                "items": [
+                  {
+                    "label": "CDR - DC4",
+                    "url": "https://drive.google.com/file/d/1AfZrxVQI2_mZ7zXwmt4Ztvin3VBXqNwd/view",
+                    "note": "Planned quantities already marked",
+                    "assetId": ""
+                  }
+                ]
+              },
+              {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Count installed columns and mark deck/slab per level",
-                  "Mark sheathing, barrier and cladding per elevation",
-                  "Count installed windows",
-                  "Mark roof progress from drone",
-                  "Record progress % per task"
+                  "Open the actual file",
+                  "Imp Frames (EA), Envelope: use the Walk path scan from 30 Dec 2025",
+                  "Complete the weekly tracking",
+                  "Compare your markups with the answer key"
+                ]
+              },
+              {
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Actual Markups",
+                    "url": "https://drive.google.com/drive/folders/17nz5admnFVE6UMoVBjGFCUVvVAgv1E7J",
+                    "note": "Open this only after you finish your weekly tracking",
+                    "assetId": ""
+                  }
                 ]
               }
             ],
             "type": "practice",
             "icon": "🏗️",
-            "subtitle": "Track the frame and the envelope per level and elevation.",
+            "subtitle": "Track the envelope from the walk path capture.",
             "why": "The frame is up and the building is closing in. Track it level by level and elevation by elevation.",
             "takeaways": [
               "How to track the frame per level",
@@ -3160,14 +3221,44 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Suffolk - CDR - DC4. Phase: Fitout & MEP. Open the actual file, which already has the planned quantities marked, and complete the weekly tracking: mark the actual progress for each component using the scan listed against it."
+              },
+              {
+                "type": "resources",
+                "title": "Actual file",
+                "items": [
+                  {
+                    "label": "CDR - DC4",
+                    "url": "https://drive.google.com/file/d/1AfZrxVQI2_mZ7zXwmt4Ztvin3VBXqNwd/view",
+                    "note": "Planned quantities already marked",
+                    "assetId": ""
+                  }
+                ]
+              },
+              {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Walk each level in the 360 capture",
-                  "Mark installed cable tray, conduit and ductwork",
-                  "Mark framing, drywall and ceiling progress",
-                  "Check sequence (no finish before hang)",
-                  "Record progress % per task"
+                  "Open the actual file",
+                  "Wall Studwork (LF), Fitout & MEP: use the Walk path scan from 21 Apr 2026",
+                  "Ductwork (LF), Fitout & MEP: use the Walk path scan from 3 Jun 2026",
+                  "Mechanical Pipework (LF), Fitout & MEP: use the Walk path scan from 21 Apr 2026",
+                  "Complete the weekly tracking",
+                  "Compare your markups with the answer key"
+                ]
+              },
+              {
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Actual Markups",
+                    "url": "https://drive.google.com/drive/folders/17nz5admnFVE6UMoVBjGFCUVvVAgv1E7J",
+                    "note": "Open this only after you finish your weekly tracking",
+                    "assetId": ""
+                  }
                 ]
               }
             ],
