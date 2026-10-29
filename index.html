@@ -1606,7 +1606,7 @@ const FIGURES = {"foundation": "data:image/webp;base64,UklGRtSAAQBXRUJQVlA4IMiAA
    Block types: text, points, callout, steps, sim, sort, calc, quiz, resources, chart. */
 
 const DEFAULT_CONTENT = {
-  "version": 27,
+  "version": 28,
   "brand": {
     "eyebrow": "Track Delivery · Training",
     "name": "Quantity Tracking",
@@ -2634,13 +2634,24 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Arco - Independence. Phase: Site works. Configure the plan, then mark the planned quantities for the 3 components below. These are your planned markups."
+              },
+              {
                 "type": "resources",
-                "title": "Practice files",
+                "title": "Plans",
                 "items": [
                   {
-                    "label": "Practice drawings: Site Works (PDF)",
-                    "url": "",
-                    "note": "Uploaded by your trainer",
+                    "label": "Electrical Site Plan",
+                    "url": "https://drive.google.com/file/d/14h_PqNuW-RBA-4sc3_ERKSLARheN9yWa/view",
+                    "note": "Configure this plan before you start marking",
+                    "assetId": ""
+                  },
+                  {
+                    "label": "Technology Site Plan",
+                    "url": "https://drive.google.com/file/d/1Inn0Tp9zTCUUhSzvsZ7g57v0591wYkjv/view",
+                    "note": "Configure this plan before you start marking",
                     "assetId": ""
                   }
                 ]
@@ -2649,26 +2660,29 @@ const DEFAULT_CONTENT = {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Set up the job and verify scale",
-                  "Create takeoff items for each site works task",
-                  "Mark underground utilities (LF)",
-                  "Mark paving and kerbs (SF / LF)",
-                  "Export your totals"
+                  "Open the plan and configure it",
+                  "Mark MV Cabling Duct Bank (LF) on the Electrical Site Plan",
+                  "Mark MV Cabling Stub Ups (EA) on the Electrical Site Plan",
+                  "Mark Tel Co Underground Duct Bank (LF) on the Technology Site Plan",
+                  "Compare your markups with the answer key"
                 ]
               },
               {
-                "type": "calc",
-                "title": "Self-check your total",
-                "prompt": "Enter your total planned storm drainage length. (Sample answer: your trainer sets the real value for the practice drawing.)",
-                "answer": 640,
-                "tolerance": 13,
-                "unit": "LF",
-                "explain": "Within 2% of the answer key is a pass. If you're off, re-check the scale and any missed runs."
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Planned Markups",
+                    "url": "https://drive.google.com/drive/folders/1IyKjbEam6Wyq-2qHl6Veg-i0tb4lIwCq",
+                    "note": "Open this only after you finish your markups",
+                    "assetId": ""
+                  }
+                ]
               }
             ],
             "type": "practice",
             "icon": "🚧",
-            "subtitle": "Mark planned quantities on practice site works drawings.",
+            "subtitle": "Configure the plan and mark planned quantities for Arco - Independence, Site works.",
             "why": "Hands-on time. Site works is a good place to build speed and confidence.",
             "takeaways": [
               "How to mark site works quantities",
@@ -2691,13 +2705,18 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Arco - Independence. Phase: Shell & Core (Superstructure). Configure the plan, then mark the planned quantities for the 3 components below. These are your planned markups."
+              },
+              {
                 "type": "resources",
-                "title": "Practice files",
+                "title": "Plans",
                 "items": [
                   {
-                    "label": "Practice drawings: Structural (PDF)",
-                    "url": "",
-                    "note": "Uploaded by your trainer",
+                    "label": "Overall Foundation Plan",
+                    "url": "https://drive.google.com/file/d/1wtVI_TqRi8sxpN4cWVj7GIjLcRACmGqT/view",
+                    "note": "Configure this plan before you start marking",
                     "assetId": ""
                   }
                 ]
@@ -2706,26 +2725,29 @@ const DEFAULT_CONTENT = {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Count piles and pile caps (EA)",
-                  "Mark grade beams (LF)",
-                  "Mark slab on grade (SF)",
-                  "Count columns per level (EA)",
-                  "Mark metal deck and elevated slabs (SF)"
+                  "Open the plan and configure it",
+                  "Mark Interior Footings Concrete Pour (EA) on the Overall Foundation Plan",
+                  "Mark Grade Beams Concrete Pour (LF) on the Overall Foundation Plan",
+                  "Mark Vapor Barrier (SF) on the Overall Foundation Plan",
+                  "Compare your markups with the answer key"
                 ]
               },
               {
-                "type": "calc",
-                "title": "Self-check your count",
-                "prompt": "How many piles did you count? (Sample answer: your trainer sets the real value.)",
-                "answer": 96,
-                "tolerance": 0,
-                "unit": "EA",
-                "explain": "Counts must match exactly. Recount by grid line if you're off."
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Planned Markups",
+                    "url": "https://drive.google.com/drive/folders/1IyKjbEam6Wyq-2qHl6Veg-i0tb4lIwCq",
+                    "note": "Open this only after you finish your markups",
+                    "assetId": ""
+                  }
+                ]
               }
             ],
             "type": "practice",
             "icon": "🏗️",
-            "subtitle": "Mark foundations and frame on practice structural drawings.",
+            "subtitle": "Configure the plan and mark planned quantities for Arco - Independence, Shell & Core (Superstructure).",
             "why": "Structure is mostly counts and areas. Practise until marking it feels routine.",
             "takeaways": [
               "How to mark foundations and frame",
@@ -2748,13 +2770,24 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Suffolk - CDR - DC4. Phase: Fitout & MEP. Configure the plan, then mark the planned quantities for the 2 components below. These are your planned markups."
+              },
+              {
                 "type": "resources",
-                "title": "Practice files",
+                "title": "Plans",
                 "items": [
                   {
-                    "label": "Practice drawings: MEP (PDF)",
-                    "url": "",
-                    "note": "Uploaded by your trainer",
+                    "label": "Ductwork Plan",
+                    "url": "https://drive.google.com/file/d/1Edsm5LHfcPcSi865cNIIkyfzqbZ21L08/view",
+                    "note": "Configure this plan before you start marking",
+                    "assetId": ""
+                  },
+                  {
+                    "label": "Piping Plan",
+                    "url": "https://drive.google.com/file/d/1P_C4_82d1y8AXAi0UtF6WqTw0uuRFr11/view",
+                    "note": "Configure this plan before you start marking",
                     "assetId": ""
                   }
                 ]
@@ -2763,26 +2796,28 @@ const DEFAULT_CONTENT = {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Mark cable tray (LF)",
-                  "Mark conduit runs (LF)",
-                  "Count electrical boxes and fixtures (EA)",
-                  "Mark ductwork (LF)",
-                  "Mark sprinkler mains (LF)"
+                  "Open the plan and configure it",
+                  "Mark Ductwork (LF) on the Ductwork Plan",
+                  "Mark Mechanical Pipework (LF) on the Piping Plan",
+                  "Compare your markups with the answer key"
                 ]
               },
               {
-                "type": "calc",
-                "title": "Self-check your total",
-                "prompt": "Enter your total cable tray length. (Sample answer: your trainer sets the real value.)",
-                "answer": 1150,
-                "tolerance": 23,
-                "unit": "LF",
-                "explain": "Within 2% is a pass. Check for tray drops and runs on the next sheet."
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Planned Markups",
+                    "url": "https://drive.google.com/drive/folders/1mTvGN7UrfZ-h__bbE0McyVi88F-7sOtd",
+                    "note": "Open this only after you finish your markups",
+                    "assetId": ""
+                  }
+                ]
               }
             ],
             "type": "practice",
             "icon": "🔌",
-            "subtitle": "Mark cable tray, conduit, ductwork and sprinklers on practice MEP drawings.",
+            "subtitle": "Configure the plan and mark planned quantities for Suffolk - CDR - DC4, Fitout & MEP.",
             "why": "MEP sheets are the busiest you'll see. One system at a time keeps them under control.",
             "takeaways": [
               "How to mark tray, conduit, duct and sprinklers",
@@ -2805,13 +2840,18 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Suffolk - CDR - DC4. Phase: Fitout & MEP. Configure the plan, then mark the planned quantities for the component below. These are your planned markups."
+              },
+              {
                 "type": "resources",
-                "title": "Practice files",
+                "title": "Plans",
                 "items": [
                   {
-                    "label": "Practice drawings: Fit-Out (PDF)",
-                    "url": "",
-                    "note": "Uploaded by your trainer",
+                    "label": "Floor Plan",
+                    "url": "https://drive.google.com/file/d/1pKWHzgdOrpA9jLzmGsZExcQA1fjDl7NP/view",
+                    "note": "Configure this plan before you start marking",
                     "assetId": ""
                   }
                 ]
@@ -2820,25 +2860,27 @@ const DEFAULT_CONTENT = {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Mark wall framing by wall type (LF)",
-                  "Mark drywall by wall height (SF)",
-                  "Mark ceilings by type (SF)",
-                  "Count doors (EA)"
+                  "Open the plan and configure it",
+                  "Mark Wall Studwork (LF) on the Floor Plan",
+                  "Compare your markups with the answer key"
                 ]
               },
               {
-                "type": "calc",
-                "title": "Self-check your total",
-                "prompt": "Enter your total metal stud framing length. (Sample answer: your trainer sets the real value.)",
-                "answer": 2480,
-                "tolerance": 50,
-                "unit": "LF",
-                "explain": "Within 2% is a pass."
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Planned Markups",
+                    "url": "https://drive.google.com/drive/folders/1mTvGN7UrfZ-h__bbE0McyVi88F-7sOtd",
+                    "note": "Open this only after you finish your markups",
+                    "assetId": ""
+                  }
+                ]
               }
             ],
             "type": "practice",
             "icon": "🧱",
-            "subtitle": "Mark a full interior fit-out on practice drawings.",
+            "subtitle": "Configure the plan and mark planned quantities for Suffolk - CDR - DC4, Fitout & MEP.",
             "why": "A full interior from start to finish. This is the closest practice gets to a real project.",
             "takeaways": [
               "How to mark a complete fit-out",
@@ -2861,13 +2903,18 @@ const DEFAULT_CONTENT = {
             },
             "blocks": [
               {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "Project: Suffolk - CDR - DC4. Phase: Envelope. Configure the plan, then mark the planned quantities for the component below. These are your planned markups."
+              },
+              {
                 "type": "resources",
-                "title": "Practice files",
+                "title": "Plans",
                 "items": [
                   {
-                    "label": "Practice drawings: Envelope (PDF)",
-                    "url": "",
-                    "note": "Uploaded by your trainer",
+                    "label": "Imp Wall Framing",
+                    "url": "https://drive.google.com/file/d/1q2vMXugHVYBSZgR12G7jT0l_bL0PxxUz/view",
+                    "note": "Configure this plan before you start marking",
                     "assetId": ""
                   }
                 ]
@@ -2876,25 +2923,27 @@ const DEFAULT_CONTENT = {
                 "type": "steps",
                 "title": "Your tasks",
                 "items": [
-                  "Mark sheathing and barrier on each elevation (SF)",
-                  "Count windows (EA)",
-                  "Mark cladding (SF)",
-                  "Mark roof membrane on the roof plan (SF)"
+                  "Open the plan and configure it",
+                  "Mark Imp Frames (EA) on the Imp Wall Framing",
+                  "Compare your markups with the answer key"
                 ]
               },
               {
-                "type": "calc",
-                "title": "Self-check your total",
-                "prompt": "Enter your total roof membrane area. (Sample answer: your trainer sets the real value.)",
-                "answer": 18500,
-                "tolerance": 370,
-                "unit": "SF",
-                "explain": "Within 2% is a pass. Subtract roof openings and equipment curbs."
+                "type": "resources",
+                "title": "Answer key",
+                "items": [
+                  {
+                    "label": "KEY - Planned Markups",
+                    "url": "https://drive.google.com/drive/folders/1mTvGN7UrfZ-h__bbE0McyVi88F-7sOtd",
+                    "note": "Open this only after you finish your markups",
+                    "assetId": ""
+                  }
+                ]
               }
             ],
             "type": "practice",
             "icon": "🏢",
-            "subtitle": "Mark elevations and the roof on practice envelope drawings.",
+            "subtitle": "Configure the plan and mark planned quantities for Suffolk - CDR - DC4, Envelope.",
             "why": "Elevations and roofs need a different eye. Practise reading them before they show up on a live job.",
             "takeaways": [
               "How to mark elevations",
