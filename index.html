@@ -1610,7 +1610,7 @@ const FIGURES = {"foundation": "data:image/webp;base64,UklGRtSAAQBXRUJQVlA4IMiAA
    Block types: text, points, callout, steps, sim, sort, calc, quiz, resources, chart. */
 
 const DEFAULT_CONTENT = {
-  "version": 30,
+  "version": 31,
   "brand": {
     "eyebrow": "Track Delivery · Training",
     "name": "Quantity Tracking",
@@ -2402,17 +2402,48 @@ const DEFAULT_CONTENT = {
               "assetId": "",
               "caption": "Task identification"
             },
-            "blocks": [],
-            "type": "learn",
-            "icon": "🔍",
-            "subtitle": "Name the exact task you're looking at on a drawing or capture.",
-            "why": "This is where it clicks. Look at a drawing or a capture and name exactly what you're seeing.",
-            "takeaways": [
-              "How to identify a task on a drawing",
-              "How to match it to the standard list",
-              "Common mix-ups to avoid"
+            "blocks": [
+              {
+                "type": "text",
+                "title": "Your exercise",
+                "body": "The exercise has 16 site images, each with MEP components highlighted. For every image, fill in its table: the component that has arrived on site, and the typical drawings you would reference to mark its progress correctly."
+              },
+              {
+                "type": "resources",
+                "title": "Exercise",
+                "items": [
+                  {
+                    "label": "Visualization of Components (MEP)",
+                    "url": "https://docs.google.com/document/d/1BoM4vUvWTBhyTi--VHMX5I971ctT5XxMQtX28l-vEp8/edit",
+                    "note": "Make your own copy, then fill in each table",
+                    "assetId": ""
+                  }
+                ]
+              },
+              {
+                "type": "steps",
+                "title": "Your tasks",
+                "items": [
+                  "Open the exercise and make your own copy (File > Make a copy)",
+                  "For each image, name the component that has arrived",
+                  "For each image, list the typical drawings you would reference",
+                  "Check that every one of the 16 tables is filled in"
+                ]
+              }
             ],
-            "cat": "Task Lists"
+            "type": "practice",
+            "icon": "🔍",
+            "subtitle": "Spot the MEP components in each site image and name the drawings you'd use to track them.",
+            "why": "This is where it clicks. Look at a capture, name the component you're seeing, and know which drawing to check it against.",
+            "takeaways": [
+              "How to identify an MEP component in a capture",
+              "Which drawings to reference for each component",
+              "How to set yourself up to mark progress correctly"
+            ],
+            "cat": "Task Lists",
+            "hide": {
+              "video": true
+            }
           },
           {
             "id": "w2s1",
