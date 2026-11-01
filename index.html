@@ -5248,11 +5248,6 @@ const DEFAULT_CONTENT = {
         </article>
       </div></section>
     ${viewStory(c)}
-    <section class="sec outcomes"><div class="outcomes-bg" aria-hidden="true"></div><div class="outcomes-in">
-      <h2>Where you'll be in four weeks</h2>
-      <div class="goals">${c.program.goals.map((g, i) => `<div class="goal"><div class="goal-top g${i % 3}" aria-hidden="true"><span>✓</span></div><div class="goal-body"><span class="eyebrow">Outcome</span>${T(`program.goals.${i}`, g, "p", "goal-t")}${xItem("program.goals", i)}</div></div>`).join("")}</div>
-      <div class="row-actions" style="justify-content:center">${addBtn("program.goals", "Add goal", "New goal")}</div>
-    </div></section>
     ${viewFinale(c)}`;
   }
   const seqWords = (s) => String(s || "").split(/\s+/).filter(Boolean).map((w, i) => `<span class="sw2" style="--i:${i}">${esc(w)}</span>`).join(" ");
@@ -5284,20 +5279,6 @@ const DEFAULT_CONTENT = {
         </article>`).join("")}
         ${E() ? `<div class="row-actions">${addBtn(P + ".steps", "Add step", { eyebrow: "New", title: "New step", body: "Describe this step.", fig: "cover", assetId: "" })}</div>` : ""}</div>
       </div>`;
-    const cyc = st.cycle || [];
-    const cycle = `<div class="cycle-wrap">${T(P + ".cycleTitle", st.cycleTitle, "h2")}
-      <div class="cycle">${cyc.map((x, i) => `${i ? `<div class="cycle-arrow" aria-hidden="true">→</div>` : ""}<div class="cyc c${i % 2} rise">
-        ${T(`${P}.cycle.${i}.kicker`, x.kicker, "div", "cyc-k")}${T(`${P}.cycle.${i}.title`, x.title, "h3")}${T(`${P}.cycle.${i}.steps`, x.steps, "div", "cyc-s")}${T(`${P}.cycle.${i}.body`, x.body, "p")}${T(`${P}.cycle.${i}.foot`, x.foot, "div", "cyc-f")}</div>`).join("")}</div></div>`;
-    const nums = [...c.hero.stats.map((s, i) => ({ s, p: `hero.stats.${i}` })), ...(st.numbersExtra || []).map((s, i) => ({ s, p: `${P}.numbersExtra.${i}` }))];
-    const links = [["program", "Open the program"], ["program", "See the sessions"], ["labs", "Explore Skill Labs"], ["record", "See your Track Record"], ["program", "Week 3: live updates"], ["program", "How it runs"]];
-    const numbers = `<div class="numbers">${T(P + ".numbersTitle", st.numbersTitle, "h2")}
-      <div class="collage" id="collage"><div class="collage-bg" aria-hidden="true"></div>
-      ${nums.map((n, i) => `<div class="cc c${i % 6}" data-speed="${[0.06, -0.05, 0.09, -0.08, 0.04, -0.03][i % 6]}">
-        ${T(n.p + ".tag", n.s.tag || "", "div", "cc-tag")}
-        ${E() ? T(n.p + ".value", n.s.value, "div", "cc-v") : `<div class="cc-v" data-count="${esc(n.s.value)}">${esc(n.s.value)}</div>`}
-        ${T(n.p + ".label", n.s.label, "div", "cc-l")}
-        ${E() ? "" : `<button class="cc-link" data-act="go" data-to="${links[i % 6][0]}">${links[i % 6][1]}</button>`}</div>`).join("")}
-      </div></div>`;
     const v = st.voices || [];
     const clean = (q) => String(q).replace(/^[“"]+|[”"]+$/g, "");
     const voices = E()
@@ -5311,7 +5292,7 @@ const DEFAULT_CONTENT = {
         </div>
         <div class="mq" aria-hidden="true">${[0, 1].map((row) => `<div class="mq-row ${row ? "rev" : ""}"><div class="mq-track">${[0, 1].map(() => v.map((q, i) => `<button class="mq-card c${(i + row * 2) % 4}" tabindex="-1" data-act="voice" data-i="${i}">“${esc(clean(q))}”</button>`).join("")).join("")}</div></div>`).join("")}</div>
       </div>`;
-    return `<section class="story">${scrolly}${voices}${cycle}${numbers}</section>`;
+    return `<section class="story">${scrolly}${voices}</section>`;
   }
 
 
