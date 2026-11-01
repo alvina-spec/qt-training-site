@@ -1592,7 +1592,7 @@ body.on-dclib #main { max-width: none; padding: 0; }
 .dclib-wrap { height: calc(100vh - var(--dclib-top, 78px)); }
 .dclib { display: block; width: 100%; height: 100%; border: 0; background: #F9F9F1; }
 
-/* Track Ready pages (program, weeks, sessions) stay still: no ribbon drift, no slide-in */
+/* Track Ready pages and every session page stay still: no ribbon drift, no slide-in */
 .still .pagerib i { animation: none !important; }
 .motion .still .rise, .still .rise { opacity: 1 !important; transform: none !important; transition: none !important; }
 </style>
@@ -5112,7 +5112,7 @@ const DEFAULT_CONTENT = {
     else h = viewHome();
     let lb = document.getElementById("learnerBar"); if (S.asLearner) { if (!lb) { lb = document.createElement("div"); lb.id = "learnerBar"; document.body.append(lb); } lb.innerHTML = `<span>👁 You're viewing the site as a learner sees it</span><button data-act="learnerOff">Back to admin view</button>`; } else if (lb) lb.remove();
     document.body.classList.toggle("on-dclib", r === "dclib");
-    document.body.classList.toggle("still", r === "program" || /^w\w+$/.test(r) || r.startsWith("s-"));
+    document.body.classList.toggle("still", r === "program" || /^w\w+$/.test(r) || r.startsWith("s-") || r.startsWith("ls-"));
     if (r === "dclib") requestAnimationFrame(() => { const t = document.querySelector(".topbar, #top"); if (t) document.documentElement.style.setProperty("--dclib-top", Math.ceil(t.getBoundingClientRect().bottom) + "px"); });
     $("#main").innerHTML = (r !== "home" && r !== "dclib" ? `<div class="pagerib${/^(labs|lab-|ls-)/.test(r) ? " blue" : ""}" aria-hidden="true"><i class="pr1"></i><i class="pr2"></i><i class="pr3"></i><i class="pl1"></i><i class="pl2"></i></div>` : "") + h;
     fillNames();
