@@ -1592,9 +1592,32 @@ body.on-dclib #main { max-width: none; padding: 0; }
 .dclib-wrap { height: calc(100vh - var(--dclib-top, 78px)); }
 .dclib { display: block; width: 100%; height: 100%; border: 0; background: #F9F9F1; }
 
-/* Track Ready pages and every session page stay still: no ribbon drift, no slide-in */
+/* Track Ready, Track Record, Skill Labs and every session page stay still: no ribbon drift, no slide-in */
 .still .pagerib i { animation: none !important; }
 .motion .still .rise, .still .rise { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* Collapsible session sections */
+.scat[role="button"] { cursor: pointer; user-select: none; }
+.scat[role="button"]:hover .scat-n { text-decoration: underline; text-underline-offset: 3px; }
+.scat-c { display: inline-block; margin-left: 10px; font-size: 13px; color: #0039ff; transition: transform .2s ease; }
+.scat.closed .scat-c { transform: rotate(-90deg); }
+.srow2.hid { display: none !important; }
+
+/* Quiet session lists (Track Ready, Track Record, Skill Labs): blue header, mint sections, no hover pop or motion */
+.sched { background: #faf9f4; border-color: #ebe9e0; }
+.sched-head { background: #0039ff; border-bottom-color: #0039ff; color: #fff; }
+.scat { background: #e3f7e5; border-top-color: #cfeed3; }
+.scat-n { color: #0039ff; }
+.srow2 { background: transparent; border-top-color: #ebe9e0; transition: none; }
+.srow2::before { display: none; }
+.srow2:hover, .srow2:focus-visible { background: transparent; }
+.srow2:focus-visible { outline: 2px solid #0039ff; outline-offset: -2px; }
+.sr-t, .srow2:hover .sr-t, .srow2:focus-visible .sr-t { color: #191e2a; transition: none; }
+.sr-go, .srow2:hover .sr-go, .srow2:focus-visible .sr-go { opacity: .4; transform: none; transition: none; }
+.sr-id { background: #fff; }
+.scat-c { transition: none; }
+.labcard2, .labcard2:hover, .labcard2:focus-visible { transform: none; transition: none; }
+.labcard2 .lc-go::after { transition: none; }
 </style>
 <div class="announce" id="announce"></div>
 <header class="topbar" id="top"></header>
@@ -5143,7 +5166,7 @@ const DEFAULT_CONTENT = {
     else h = viewHome();
     let lb = document.getElementById("learnerBar"); if (S.asLearner) { if (!lb) { lb = document.createElement("div"); lb.id = "learnerBar"; document.body.append(lb); } lb.innerHTML = `<span>👁 You're viewing the site as a learner sees it</span><button data-act="learnerOff">Back to admin view</button>`; } else if (lb) lb.remove();
     document.body.classList.toggle("on-dclib", r === "dclib");
-    document.body.classList.toggle("still", r === "program" || /^w\w+$/.test(r) || r.startsWith("s-") || r.startsWith("ls-"));
+    document.body.classList.toggle("still", r === "program" || /^w\w+$/.test(r) || r.startsWith("s-") || r.startsWith("ls-") || r === "record" || r === "labs" || r.startsWith("lab-"));
     if (r === "dclib") requestAnimationFrame(() => { const t = document.querySelector(".topbar, #top"); if (t) document.documentElement.style.setProperty("--dclib-top", Math.ceil(t.getBoundingClientRect().bottom) + "px"); });
     $("#main").innerHTML = (r !== "home" && r !== "dclib" ? `<div class="pagerib${/^(labs|lab-|ls-)/.test(r) ? " blue" : ""}" aria-hidden="true"><i class="pr1"></i><i class="pr2"></i><i class="pr3"></i><i class="pl1"></i><i class="pl2"></i></div>` : "") + h;
     fillNames();
@@ -5461,7 +5484,21 @@ const DEFAULT_CONTENT = {
   }
   function catRows(list, ctx) {
     const groups = []; list.forEach((s) => { const c = s.cat || ""; const g = groups[groups.length - 1]; if (g && g.cat === c) g.items.push(s); else groups.push({ cat: c, items: [s] }); });
-    return groups.map((g) => (g.cat ? `<div class="scat"><span class="scat-n">${esc(g.cat)}</span><span class="scat-m">${g.items.length} session${g.items.length > 1 ? "s" : ""} · ${fmtMins(g.items.reduce((n, x) => n + (Number(x.mins) || 0), 0))}</span></div>` : "") + g.items.map((s, i) => schedRow(s, ctx || "", i + 1)).join("")).join("");
+    const open = openCats();
+    return groups.map((g) => {
+      const k = (ctx || "") + "|" + g.items[0].id; const closed = !!(g.cat && !open[k]);
+      const head = g.cat ? `<div class="scat${closed ? " closed" : ""}" role="button" tabindex="0" aria-expanded="${!closed}" data-act="toggleCat" data-k="${esc(k)}"><span class="scat-n">${esc(g.cat)}</span><span class="scat-m">${g.items.length} session${g.items.length > 1 ? "s" : ""} · ${fmtMins(g.items.reduce((n, x) => n + (Number(x.mins) || 0), 0))}<span class="scat-c" aria-hidden="true">▾</span></span></div>` : "";
+      return head + g.items.map((s, i) => schedRow(s, ctx || "", i + 1).replace('<div class="srow2', `<div data-grp="${esc(k)}" class="${closed ? "hid " : ""}srow2`)).join("");
+    }).join("");
+  }
+  // Session sections start collapsed; the ones a viewer opens are kept in this browser only.
+  function openCats() { try { return JSON.parse(lsGet("qt.openCats") || "{}") || {}; } catch (e) { return {}; } }
+  function toggleCat(el) {
+    const k = el.dataset.k; const open = openCats(); const closed = !!open[k];
+    if (closed) delete open[k]; else open[k] = 1;
+    lsSet("qt.openCats", JSON.stringify(open));
+    el.classList.toggle("closed", closed); el.setAttribute("aria-expanded", String(!closed));
+    document.querySelectorAll(".srow2[data-grp]").forEach((r) => { if (r.dataset.grp === k) r.classList.toggle("hid", closed); });
   }
   const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   const DAYN = { Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday", Fri: "Friday" };
@@ -5489,8 +5526,7 @@ const DEFAULT_CONTENT = {
       <div class="tabs" role="tablist">${c.program.weeks.map((x, i) => `<button class="tab" role="tab" aria-selected="${i === wi}" data-act="week" data-i="${i}"><small>WEEK ${i + 1}</small>${esc(x.title)}</button>`).join("")}${E() ? `<button class="add" data-act="addWeek">+ Add week</button>` : ""}</div>
       ${w ? `<div class="weekhead">
         ${E() ? `<div class="edtools"><span class="tag">Week ${wi + 1}</span>${tools("program.weeks", wi, c.program.weeks.length, "week")}</div>` : ""}
-        <h2>Week ${wi + 1}: ${T(base + ".title", w.title)}</h2>${T(base + ".theme", w.theme, "div", "theme")}
-        <div class="goal-line"><span class="label">Goal</span>${T(base + ".goal", w.goal)}</div></div>
+        <h2>Week ${wi + 1}: ${T(base + ".title", w.title)}</h2></div>
       ${E() ? `<div class="cards">${editGroups(w, wi, base)}</div>` : `<div class="sched">${schedHead}${catRows(w.sessions)}</div>`}
       ${E() ? `<div class="row-actions"><button class="add" data-act="addSession" data-wi="${wi}">+ Add session</button></div>${archivePanel()}` : ""}
       <div class="pager" style="max-width:none">${wi > 0 ? `<button class="btn plain" data-act="week" data-i="${wi - 1}">← Week ${wi}</button>` : "<span></span>"}${wi < c.program.weeks.length - 1 ? `<button class="btn lime next" data-act="week" data-i="${wi + 1}">Open week ${wi + 2} →</button>` : `<button class="btn lime next" data-act="go" data-to="record">See your ${esc(c.trackRecord.title)} →</button>`}</div>` : ""}`;
@@ -6190,6 +6226,7 @@ const DEFAULT_CONTENT = {
       case "go": if (d.anchor) S.ui.scrollTo = d.anchor; go(d.to, d.ctx !== undefined ? (d.ctx || null) : (d.to.startsWith("s-") ? S.ctx : null)); break;
       case "voice": setVoice(Number(d.i), true); break;
       case "week": S.week = Number(d.i); go(C().program.weeks[S.week].id, null); break;
+      case "toggleCat": toggleCat(el); break;
       case "menu": S.menu = !S.menu; renderTop(); break;
       case "toggleEdit":
         if (S.draft) { if (S.dirty) { toast("Save or discard your changes first."); S.menu = false; renderTop(); return; } S.draft = null; }
@@ -6298,7 +6335,7 @@ const DEFAULT_CONTENT = {
     }
   });
   document.addEventListener("keydown", (e) => {
-    if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches('.scard[role="link"], .srow2')) { e.preventDefault(); e.target.click(); }
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches('.scard[role="link"], .srow2, .scat[role="button"]')) { e.preventDefault(); e.target.click(); }
     if (e.key === "Escape" && S.menu) { S.menu = false; renderTop(); }
   });
   document.addEventListener("change", (e) => {
