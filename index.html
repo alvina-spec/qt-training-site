@@ -1646,7 +1646,7 @@ const FIGURES = {"foundation": "data:image/webp;base64,UklGRtSAAQBXRUJQVlA4IMiAA
    Block types: text, points, callout, steps, sim, sort, calc, quiz, resources, chart. */
 
 const DEFAULT_CONTENT = {
-  "version": 33,
+  "version": 35,
   "brand": {
     "eyebrow": "Track Delivery · Training",
     "name": "Quantity Tracking",
@@ -3087,34 +3087,6 @@ const DEFAULT_CONTENT = {
                   "If an area wasn't captured, carry the previous value and flag it",
                   "When in doubt, don't count it; flag it for review"
                 ]
-              },
-              {
-                "type": "quiz",
-                "title": "Check your understanding",
-                "questions": [
-                  {
-                    "q": "Zone C wasn't captured this week. What do you report?",
-                    "options": [
-                      "0%",
-                      "Estimate from the schedule",
-                      "Last week's value, flagged as not captured",
-                      "100%"
-                    ],
-                    "correct": 2,
-                    "explain": "Carry forward the last evidence-backed value and flag the gap."
-                  },
-                  {
-                    "q": "Which capture is best for roof membrane?",
-                    "options": [
-                      "Interior 360 walk",
-                      "Drone",
-                      "The P6 schedule",
-                      "Email from the contractor"
-                    ],
-                    "correct": 1,
-                    "explain": "Roofs are seen from above, so drone captures are the evidence."
-                  }
-                ]
               }
             ],
             "type": "learn",
@@ -3382,22 +3354,40 @@ const DEFAULT_CONTENT = {
         "sessions": [
           {
             "id": "w4s1",
-            "title": "Test Update 1",
+            "title": "Test Update 1: Project Independence",
             "mins": 60,
             "video": {
-              "url": "",
+              "url": "https://drive.google.com/file/d/1pQ2_fhMGR8tE-1MfO-yb2s67f-l88xdZ/view",
+              "secs": 552,
               "assetId": "",
-              "caption": "Test update briefing"
+              "caption": "Project Independence onboarding"
             },
             "blocks": [
+              {
+                "type": "text",
+                "title": "Your test",
+                "body": "This is your first test. Watch the onboarding video, then complete a full weekly update on Project Independence on your own, using the test files and the 07/30 scans below. Use the drone scan and the walk path scan, both from 07/30."
+              },
               {
                 "type": "resources",
                 "title": "Test files",
                 "items": [
                   {
-                    "label": "Test update 1 package",
-                    "url": "",
-                    "note": "Uploaded by your trainer",
+                    "label": "Test Update 1: Project Independence",
+                    "url": "https://drive.google.com/drive/folders/1rUMxfpXw-aaLt8sG7EN8SmuqBbEtixaT",
+                    "note": "Test files for this update",
+                    "assetId": ""
+                  }
+                ]
+              },
+              {
+                "type": "resources",
+                "title": "Scans",
+                "items": [
+                  {
+                    "label": "Drone scan, 07/30 (OpenSpace)",
+                    "url": "https://openspace.ai/projects/Fo1aLRGJQ8CDkJ_EW4Fxdg/drone-captures/iFhmK0idSvSoXKnjszZYJg?view=layers",
+                    "note": "Opens the drone capture in OpenSpace",
                     "assetId": ""
                   }
                 ]
@@ -3426,22 +3416,40 @@ const DEFAULT_CONTENT = {
           },
           {
             "id": "w4s2",
-            "title": "Test Update 2",
+            "title": "Test Update 2: CDR DC4 - C3",
             "mins": 60,
             "video": {
-              "url": "",
+              "url": "https://drive.google.com/file/d/15tD5lZhImqzHQmYo4UZ_InlTRjRbeelP/view",
+              "secs": 767,
               "assetId": "",
-              "caption": "Test update briefing"
+              "caption": "CDR test update and practice session"
             },
             "blocks": [
+              {
+                "type": "text",
+                "title": "Your test",
+                "body": "This is your second test. Watch the onboarding video, then complete a full weekly update on CDR DC4 - C3 on your own, using the test files and the 07/21 walk path scan below."
+              },
               {
                 "type": "resources",
                 "title": "Test files",
                 "items": [
                   {
-                    "label": "Test update 2 package",
-                    "url": "",
-                    "note": "Uploaded by your trainer",
+                    "label": "Test Update 2: CDR DC4 - C3",
+                    "url": "https://drive.google.com/drive/folders/1t-_OFhWoUyhFuCJ47lr84ecu0YspcVmK",
+                    "note": "Test files for this update",
+                    "assetId": ""
+                  }
+                ]
+              },
+              {
+                "type": "resources",
+                "title": "Scans",
+                "items": [
+                  {
+                    "label": "Walk path scan, 07/21 (OpenSpace)",
+                    "url": "https://openspace.ai/ohplayer?site=gknrOwIARaqJwJDVAJmrmQ&bright=0&capture=KsnSpHLHT3CQoPUSEvRoKA&pano=3LE_e3WdUKuGTNifAwmlfw&sheet=DQi6uFsWSzWvEbTqAHu5FA&shadow=0&sharp=0&attitude=-0.9143%2C-0.1305%2C-0.0542%2C-0.3797&fov=1.09&pos=131.7012%2C-92.4385%2C1.9666",
+                    "note": "Opens the capture in OpenSpace",
                     "assetId": ""
                   }
                 ]
@@ -3631,34 +3639,6 @@ const DEFAULT_CONTENT = {
                   47,
                   58
                 ]
-              },
-              {
-                "type": "quiz",
-                "title": "Read the graph",
-                "questions": [
-                  {
-                    "q": "At week 6, where is actual progress compared with plan?",
-                    "options": [
-                      "Ahead by 17 points",
-                      "On plan",
-                      "Behind by 17 points",
-                      "Behind by 58 points"
-                    ],
-                    "correct": 2,
-                    "explain": "Planned 75%, actual 58%: 17 points behind."
-                  },
-                  {
-                    "q": "Which one-line summary is best for the client?",
-                    "options": [
-                      "Drywall is bad",
-                      "Drywall hang on Level 2 is 58% complete, 17 points behind plan, and the gap has widened each week since week 3",
-                      "We think drywall is slow",
-                      "Numbers attached"
-                    ],
-                    "correct": 1,
-                    "explain": "State the number, the gap, and the trend. Facts, not opinions."
-                  }
-                ]
               }
             ],
             "type": "learn",
@@ -3703,23 +3683,6 @@ const DEFAULT_CONTENT = {
                   "Say what you don't know and when you'll confirm it",
                   "Keep it short: the client reads the graph, you explain the outliers"
                 ]
-              },
-              {
-                "type": "quiz",
-                "title": "Check your understanding",
-                "questions": [
-                  {
-                    "q": "The client says \"Level 3 framing looks more done than 40%.\" Best response?",
-                    "options": [
-                      "Change it to 60%",
-                      "Show the capture and the marked plan behind the 40%, and offer to re-check any area they think was missed",
-                      "Say the software calculated it",
-                      "Ignore it"
-                    ],
-                    "correct": 1,
-                    "explain": "Walk them through the evidence, and stay open to re-checking."
-                  }
-                ]
               }
             ],
             "type": "learn",
@@ -3742,130 +3705,11 @@ const DEFAULT_CONTENT = {
               "assetId": "",
               "caption": ""
             },
-            "assessment": true,
-            "passMark": 80,
-            "blocks": [
-              {
-                "type": "quiz",
-                "title": "Final check questions",
-                "questions": [
-                  {
-                    "q": "Planned 300 LF, installed 225 LF. Progress?",
-                    "options": [
-                      "70%",
-                      "75%",
-                      "80%",
-                      "225%"
-                    ],
-                    "correct": 1,
-                    "explain": "225 ÷ 300 × 100 = 75%."
-                  },
-                  {
-                    "q": "Which takeoff tool counts light fixtures?",
-                    "options": [
-                      "Area",
-                      "Linear",
-                      "Count",
-                      "Segment"
-                    ],
-                    "correct": 2,
-                    "explain": "Fixtures are EA, so use Count."
-                  },
-                  {
-                    "q": "Before marking a new page you must…",
-                    "options": [
-                      "Colour the items",
-                      "Verify the scale",
-                      "Email the client",
-                      "Print it"
-                    ],
-                    "correct": 1,
-                    "explain": "Verify the scale against a known dimension."
-                  },
-                  {
-                    "q": "Progress for a task drops from 70% to 55%. You…",
-                    "options": [
-                      "Report 55%",
-                      "Re-check markings and capture before reporting",
-                      "Average to 62.5%",
-                      "Report 70% again without checking"
-                    ],
-                    "correct": 1,
-                    "explain": "Progress shouldn't go backwards. Investigate before reporting."
-                  },
-                  {
-                    "q": "An area wasn't captured this week. You…",
-                    "options": [
-                      "Report 0%",
-                      "Carry the last value and flag it",
-                      "Estimate",
-                      "Skip the whole report"
-                    ],
-                    "correct": 1,
-                    "explain": "Carry forward the last evidence-backed value and flag it."
-                  },
-                  {
-                    "q": "Which comes first in fit-out?",
-                    "options": [
-                      "Paint",
-                      "Ceiling tiles",
-                      "Metal stud framing",
-                      "Drywall finish"
-                    ],
-                    "correct": 2,
-                    "explain": "Framing comes before boards, finishes and ceilings."
-                  },
-                  {
-                    "q": "Two revisions of S-201 arrive. You mark…",
-                    "options": [
-                      "The older one",
-                      "The latest one",
-                      "Both",
-                      "Neither"
-                    ],
-                    "correct": 1,
-                    "explain": "The latest revision always wins."
-                  },
-                  {
-                    "q": "Where is installed progress entered after compilation?",
-                    "options": [
-                      "The takeoff file only",
-                      "Delivery Core",
-                      "The P6 schedule",
-                      "A personal spreadsheet"
-                    ],
-                    "correct": 1,
-                    "explain": "Compiled progress goes into Delivery Core."
-                  },
-                  {
-                    "q": "Best evidence for roof membrane progress?",
-                    "options": [
-                      "Drone capture",
-                      "Interior 360",
-                      "Schedule",
-                      "Phone call"
-                    ],
-                    "correct": 0,
-                    "explain": "Roofs are verified from drone captures."
-                  },
-                  {
-                    "q": "A good client summary includes…",
-                    "options": [
-                      "Only the graph",
-                      "The number, the gap to plan and the trend",
-                      "Opinions on the contractor",
-                      "Every task in detail"
-                    ],
-                    "correct": 1,
-                    "explain": "Number, gap, trend, with evidence ready."
-                  }
-                ]
-              }
-            ],
+            "blocks": [],
             "type": "test",
             "icon": "🏁",
-            "subtitle": "Score 80% or more to become Track Ready.",
-            "why": "The last step to Track Ready. Score 80% or more and you're cleared for live projects.",
+            "subtitle": "The final check before you become Track Ready.",
+            "why": "The last step to Track Ready. Finish it and you're cleared for live projects.",
             "takeaways": [
               "Whether you're Track Ready",
               "Which areas to revisit",
@@ -4309,7 +4153,7 @@ const DEFAULT_CONTENT = {
   },
   "trackRecord": {
     "title": "Track Record",
-    "intro": "Your progress through Track Ready. Finish every session and pass the end-of-month test to earn Track Ready status.",
+    "intro": "Your progress through Track Ready. Finish every session to earn Track Ready status.",
     "badge": "Track Ready",
     "line": "Ready to deliver accurate quantity tracking progress on live projects."
   },
@@ -5070,7 +4914,7 @@ const DEFAULT_CONTENT = {
     const all = allSessions(); const d = all.filter((x) => doneIn(p, x.s.id)).length;
     let first = 0, n = 0;
     Object.values(p.sessions || {}).forEach((x) => Object.values(x.checks || {}).forEach((c) => { n++; if (c.first) first++; }));
-    const ready = all.length > 0 && d === all.length && !!(p.assessment && p.assessment.passed);
+    const ready = all.length > 0 && d === all.length && (!finalCheck() || !!(p.assessment && p.assessment.passed));
     return { done: d, total: all.length, pct: pct(d, all.length), acc: n ? Math.round((first / n) * 100) : null, ready };
   }
   const finalCheck = () => { const x = allSessions().find((x) => x.s.assessment); return x ? x.s : null; };
@@ -5986,11 +5830,11 @@ const DEFAULT_CONTENT = {
       <div class="rec-top">
         <div class="weekbars"><div class="label">Week by week</div>${c.program.weeks.map((w, i) => { const d = w.sessions.filter((s) => isDone(s.id)).length; return `<div class="wbar"><b>Week ${i + 1}</b><div class="bar"><i style="width:${pct(d, w.sessions.length)}%"></i></div><span class="num muted">${d}/${w.sessions.length}</span></div>`; }).join("")}</div>
         <div class="badgecard ${st.ready ? "earned" : ""}"><div class="seal">✓</div>${T("trackRecord.badge", tr.badge, "h3")}${T("trackRecord.line", tr.line, "p")}
-          <span class="muted" style="font-size:14px">${st.ready ? "Earned " + dShort(a.at) + (S.me.name ? " · " + esc(S.me.name) : "") : "Not earned yet"}</span></div>
+          <span class="muted" style="font-size:14px">${st.ready ? "Earned" + (a && a.at ? " " + dShort(a.at) : "") + (S.me.name ? " · " + esc(S.me.name) : "") : "Not earned yet"}</span></div>
       </div>
       <div class="reqs">
         <div class="req ${tDone === training.length ? "ok" : ""}"><span class="d">${tDone === training.length ? "✓" : ""}</span><div style="flex:1"><b>Finish all ${training.length} sessions</b><div class="muted" style="font-size:14px">${tDone} of ${training.length} done</div></div></div>
-        <div class="req ${a && a.passed ? "ok" : ""}"><span class="d">${a && a.passed ? "✓" : ""}</span><div style="flex:1"><b>Pass the end-of-month test (${fc ? fc.passMark || 80 : 80}% or more)</b><div class="muted" style="font-size:14px">${a && a.at ? "Your score: " + a.score + "%" : "The last session of Week 4"}</div></div></div>
+        ${fc ? `<div class="req ${a && a.passed ? "ok" : ""}"><span class="d">${a && a.passed ? "✓" : ""}</span><div style="flex:1"><b>Pass the end-of-month test (${fc.passMark || 80}% or more)</b><div class="muted" style="font-size:14px">${a && a.at ? "Your score: " + a.score + "%" : "The last session of Week 4"}</div></div></div>` : ""}
       </div>`;
   }
   function trPop() {
