@@ -1620,8 +1620,17 @@ body.on-dclib #main { max-width: none; padding: 0; }
 .labcard2 .lc-go::after { transition: none; }
 
 /* Page intro lines: Hubot Sans in a soft box (home page unaffected) */
-.pagehead .lede { display: inline-block; font-family: "Hubot Sans", var(--sans, Inter), sans-serif; font-weight: 500; font-size: 17px; line-height: 1.55; color: #3d4250; background: #eef3ff; border: 1px solid #dbe5fd; border-radius: 14px; padding: 12px 18px; max-width: 62ch; }
+.pagehead .lede { display: inline-block; font-family: "Hubot Sans", var(--sans, Inter), sans-serif; font-weight: 500; font-size: 17px; line-height: 1.55; color: #fff; background: rgba(0,57,255,.8); border: 1px solid rgba(0,57,255,.85); border-radius: 14px; padding: 12px 18px; max-width: 62ch; }
 .sheet .subtitle, .labcard2 p { font-family: "Hubot Sans", var(--sans, Inter), sans-serif; font-weight: 500; }
+
+/* Skill Labs session lists: soft translucent blues, a shade deeper than the intro box */
+.on-labs .sched { background: #fbfcff; border-color: rgba(0,57,255,.16); }
+.on-labs .sched-head { background: #edf925; border-bottom-color: #dbe600; color: #191e2a; }
+.on-labs .scat { background: rgba(0,57,255,.06); border-top-color: rgba(0,57,255,.12); }
+.on-labs .scat-n { color: #191e2a; }
+.on-labs .scat-m { color: #5c6170; }
+.on-labs .scat-c { color: #0039ff; }
+.on-labs .srow2 { border-top-color: rgba(0,57,255,.10); }
 </style>
 <div class="announce" id="announce"></div>
 <header class="topbar" id="top"></header>
@@ -5170,6 +5179,7 @@ const DEFAULT_CONTENT = {
     else h = viewHome();
     let lb = document.getElementById("learnerBar"); if (S.asLearner) { if (!lb) { lb = document.createElement("div"); lb.id = "learnerBar"; document.body.append(lb); } lb.innerHTML = `<span>👁 You're viewing the site as a learner sees it</span><button data-act="learnerOff">Back to admin view</button>`; } else if (lb) lb.remove();
     document.body.classList.toggle("on-dclib", r === "dclib");
+    document.body.classList.toggle("on-labs", r === "labs" || r.startsWith("lab-") || r.startsWith("ls-"));
     document.body.classList.toggle("still", r === "program" || /^w\w+$/.test(r) || r.startsWith("s-") || r.startsWith("ls-") || r === "record" || r === "labs" || r.startsWith("lab-"));
     if (r === "dclib") requestAnimationFrame(() => { const t = document.querySelector(".topbar, #top"); if (t) document.documentElement.style.setProperty("--dclib-top", Math.ceil(t.getBoundingClientRect().bottom) + "px"); });
     $("#main").innerHTML = (r !== "home" && r !== "dclib" ? `<div class="pagerib${/^(labs|lab-|ls-)/.test(r) ? " blue" : ""}" aria-hidden="true"><i class="pr1"></i><i class="pr2"></i><i class="pr3"></i><i class="pl1"></i><i class="pl2"></i></div>` : "") + h;
